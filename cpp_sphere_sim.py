@@ -47,7 +47,7 @@ explicit_setback = 0        # If you want to move the origin of the emission out
                             # the sphere. 
                             # This can be used to simulate directional injection through a tunnel. The simulation assumes that no photons exit the sphere through the injection tunnel. 
                             # The only way that photons can exit the sphere is through the port opening at the bottom. 
-explicit_disc = 3.2         # Beam homogenization and ray mixing is expected in the injection tunnel of the sphere due to specular reflection on the inner surface of the SMA receptacle. 
+explicit_disc = 1.5         # Beam homogenization and ray mixing is expected in the injection tunnel of the sphere due to specular reflection on the inner surface of the SMA receptacle. 
                             # Gives the beam radius in mm, angular distribution is unaffected. 
                             # explicit_disc applies to explicit_direction = True and explicit_setback has to be > 0 and large enough in order for explicit_disc to work. 
                             # for the IC2, the light first goes through the inner diameter of the SMA receptacle, which is 3.2 mm wide and the setback is about 4 mm.

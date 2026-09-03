@@ -506,7 +506,9 @@ py::tuple simulate_photons_cpp(
                 double disc = B*B - 4.0 * C;
 
                 if (disc < 0.0) {
-                    continue;   // ray misses the sphere
+                    throw std::runtime_error(
+                        "Injection ray misses the sphere. Check explicit injection geometry."
+                    );
                 }
 
                 double sqrt_disc = std::sqrt(disc);
@@ -515,7 +517,9 @@ py::tuple simulate_photons_cpp(
 
                 double t_far = std::max(t1, t2);
                 if (t_far <= 0.0) {
-                    continue;   // the far intersection has to lie in the injection direction 
+                    throw std::runtime_error(
+                        "Far intersection is not in the forward direction. Check explicit injection geometry."
+                    );
                 }
 
                 pos = {
@@ -532,6 +536,12 @@ py::tuple simulate_photons_cpp(
                 double t = -2.0 * (injection_point[0]*direction[0] +
                                    injection_point[1]*direction[1] +
                                    injection_point[2]*direction[2]);
+                if (t < 0.0) {
+                    throw std::runtime_error(
+                        "Photon direction points out of the sphere. "
+                        "Check explicit_injection_direction."
+                    );
+                }
 
                 pos = {
                     injection_point[0] + t * direction[0],
