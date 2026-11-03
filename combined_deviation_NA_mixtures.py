@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 import os
 
+# combined_deviation_NA_mixtures.py - Combines the deviation curves of two simulations (directional fiber
+# injection and diffuse injection from the tunnel wall) as weighted mixtures. The weights are the fractions of
+# detected photons in the central square coming from each injection type (e.g. 5 % diffuse = 5 % of the detected
+# photons originate from diffuse injection).
+
 # ====================== INPUT FILES ======================
 fiber_file = "photon_exit_data_100MPhotons_reflectance98_IC2_fiber_explicit_setback4_all_batches_deviation_vs_NA.npz"
 diffuse_file = "photon_exit_data_100MPhotons_reflectance98_IC2_fiber_explicit_setback4_explicit_tunnel3.2_all_batches_deviation_vs_NA.npz"

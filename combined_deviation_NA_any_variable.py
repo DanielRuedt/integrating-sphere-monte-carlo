@@ -26,8 +26,8 @@ data_files = [
 # Example: if your variable is wall reflectance in %  [97, 98, 99]
 # Example: if your variable is offset in degrees in [-15, 0, +15]
 # Example: if your variable is fiber NA in um  [0.22, 0.39]
-variable_values = [0.22, 0.39]          # <<< CHANGE THIS
-variable_name = r"Injection NA (no unit)"   # <<< Label for x-axis in B and C, e.g. r"Injection Angle ($^\circ$)"
+variable_values = [96, 97, 98]          # <<< CHANGE THIS
+variable_name = r"Reflectance (%)"   # <<< Label for x-axis in B and C, e.g. r"Injection Angle ($^\circ$)"
 variable_unit = r""                    # <<< Used in legends if needed, e.g. r"$^\circ$"
 
 save_name = "photon_exit_data_100MPhotons_reflectance99_equatorial_fiber_diameter_port_ratio_3.50_injection_NAs_combined"  # This is the save name that will be used 

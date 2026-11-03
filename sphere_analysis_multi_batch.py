@@ -7,7 +7,7 @@ from matplotlib.ticker import AutoMinorLocator, MultipleLocator, FormatStrFormat
 # ====================== CONFIG ======================
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-base_name = "photon_exit_data_10MPhotons_reflectance98_IC2_fiber_explicit_setback4_explicit_tunnel3.2_batch"
+base_name = "photon_exit_data_10MPhotons_reflectance95_IC2_fiber_explicit_setback4_batch"
 #"photon_exit_data_10MPhotons_reflectance99_equatorial_fiber_diameter_port_ratio_3.50_batch"
 #"photon_exit_data_10MPhotons_reflectance99_equatorial_fiber_largeNA_diameter_port_ratio_3.50_batch"
 
@@ -109,12 +109,12 @@ for batch_idx, data_path in enumerate(batch_files, 1):
         bounces_hist += np.histogram(bounces, bins=bounces_bin_edges)[0]
     
     # Accumulate angles
-    angle_hist += np.histogram(exit_alpha_deg, bins=90)[0]
+    angle_hist += np.histogram(exit_alpha_deg, bins=90, range=(0, 90))[0]
     
     # Accumulate angles for photons with >= 2 bounces 
     mask_no1 = bounces >= 2
     if np.any(mask_no1):
-        angle_hist_no1 += np.histogram(exit_alpha_deg[mask_no1], bins=90)[0]
+        angle_hist_no1 += np.histogram(exit_alpha_deg[mask_no1], bins=90, range=(0, 90))[0]
     
     # Accumulate 2D heatmap
     if port_2d_hist is None:
