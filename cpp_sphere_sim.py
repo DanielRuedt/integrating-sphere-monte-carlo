@@ -47,7 +47,7 @@ explicit_setback = 0        # If you want to move the origin of the emission out
                             # the sphere. 
                             # This can be used to simulate directional injection through a tunnel. The simulation assumes that no photons exit the sphere through the injection tunnel. 
                             # The only way that photons can exit the sphere is through the port opening at the bottom. 
-explicit_disc = 1.5         # Beam homogenization and ray mixing is expected in the injection tunnel of the sphere due to specular reflection on the inner surface of the SMA receptacle. 
+explicit_disc = 0           # Beam homogenization and ray mixing is expected in the injection tunnel of the sphere due to specular reflection on the inner surface of the SMA receptacle. 
                             # Gives the beam radius in mm, angular distribution is unaffected. 
                             # explicit_disc applies to explicit_direction = True and explicit_setback has to be > 0 and large enough in order for explicit_disc to work. 
                             # for the IC2, the light first goes through the inner diameter of the SMA receptacle, which is 3.2 mm wide and the setback is about 4 mm.
@@ -62,7 +62,12 @@ explicit_tunnel = 0         # for explicit_direction = True, specifies a tunnel 
                             # Be careful not to choose a too large explicit_setback, otherwise the cylinder can reach the opposite side 
                             # of the sphere, which renders the rejection invalid. 
                             # Only photons with injection directions that actually pass through the tunnel are simulated. 
-                            # This models the tunnel wall as a uniform diffuse radiator. 
+                            # Every sampled wall position contributes equally to the photons entering the sphere: a direction is resampled 
+                            # at the same position until it passes through the tunnel opening. Deep positions, which see only a small part 
+                            # of the opening, are therefore not underrepresented. This approximates diffuse light that enters at the deep end 
+                            # of the tunnel (the very end of the SMA receptacle is coated with barium sulfate) and propagates toward the sphere by multiple reflections, 
+                            # rather than a uniformly bright tunnel wall.
+
 
 if injection_location == "IC2": 
     # ----- IC2 injection geometry ----- 
