@@ -15,7 +15,7 @@ bounces = 460               # Maximum bounces before terminating a photon.
                             # Chosen so that reflectance^n < 0.01 (i.e. >99% absorbed on average)
                             # Values: 460 for reflectance=0.99, 90 for 0.95, 44 for 0.90, 
                             # 29 for 0.85, 21 for 0.80 
-reflectance = 0.98          
+reflectance = 0.98         
 
 batches = 10
 photons = 10 * (10**6)      # photons per batch
@@ -53,7 +53,8 @@ explicit_disc = 0           # Beam homogenization and ray mixing is expected in 
                             # for the IC2, the light first goes through the inner diameter of the SMA receptacle, which is 3.2 mm wide and the setback is about 4 mm.
                             # The photons are then injected from a disc shaped region outside of the sphere that is perpendicular to the explicit_injection_direction and 
                             # centered on the axis created by the injection_point and the explicit_injection_direction. 
-explicit_tunnel = 0         # for explicit_direction = True, specifies a tunnel radius for the injection tunnel where diffuse reflection occurs. The tunnel length in mm along the 
+explicit_tunnel = 0         # for explicit_direction = True, specifies a tunnel radius for the injection tunnel where diffuse reflection occurs. 
+                            # This is the tunnel that holds the SMA receptacle. The tunnel length in mm along the 
                             # central tunnel axis is equal to explicit_setback and for the IC2, the tunnel radius is approximately 3.2 mm. 
                             # If explicit_tunnel = 0, then diffuse reflection at the tunnel is ignored. 
                             # If explicit_tunnel > 0 then the injection is simulated as entirely coming from diffuse reflection at the tunnel wall, so injection type is ignored. 
